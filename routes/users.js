@@ -5,6 +5,6 @@ var authHelper = require('../helpers/authHelper')
 
 /* GET users listing. */
 
-router.post('/signin', userController.setFBAccessToken, userController.loginUser)
+router.post('/signin', userController.setFBAccessToken, authHelper.isLogin, userController.loginUser)
 
 module.exports = router;

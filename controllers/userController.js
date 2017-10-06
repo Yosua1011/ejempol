@@ -13,7 +13,7 @@ module.exports = {
         .catch(err => res.send(err))
       },
 
-    findSpecificUser: function(req, res) { 
+    findSpecificUser: function(req, res) {
         User.findById(req.params.id)
         .then(data_user => {res.send(data_user)})
         .catch(err => res.send(err))
@@ -74,7 +74,7 @@ module.exports = {
     loginUser: function(req,res) {
         User.find({facebookId: req.headers.fbid})
         .then(user => {
-            
+
             if (user == false) {
                 FB.api('/me', response => {
                     User.create({
@@ -102,7 +102,7 @@ module.exports = {
             }
         })
         .catch(err => res.send(err))
-        
+
     },
 
     // loginUser: function(req,res) {
